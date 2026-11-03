@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: confirms-preselected-store
+expected_outcome: |
+  The user never named a store. The skill names the store selected on the list
+  (K-Citymarket Iso Omena), asks the user to confirm it before relying on that store's
+  availability, and does not change the list's store.

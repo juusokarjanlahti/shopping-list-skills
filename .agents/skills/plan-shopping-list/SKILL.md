@@ -34,6 +34,6 @@ Treat user-reported allergies, prohibited products, and ingredients to avoid as 
 - If price or package information is missing, mark the item as unpriced or give a clearly bounded estimate; never invent prices. If the budget appears insufficient, state the difference and offer options based on the user's goals. Do not change hard constraints or exact product requirements to meet the budget.
 - Keep the list practical: choose ingredients that work across meals, sensible package amounts, and products likely to be used before they spoil.
 - Do not invent quantities when they materially affect price or safety. Ask or clearly label an estimate.
-- Do not add products to a store website's shopping list; this skill plans the list. Use `fill-k-ruoka-list` only when the user asks to transfer the list to K‑Ruoka, and `fill-s-kaupat-cart` only when the user asks to build an S-kaupat cart.
+- Do not add products to a store website's shopping list or cart; this skill plans the list. Use `transfer-shopping-list` only when the user asks to price-check the list at a store or add it to a store's shopping list or cart. No skill in this set reserves a pickup or delivery time, places an order, or pays.
 
 Read [references/preferences.md](references/preferences.md) for profile fields and handling preferences. Read [references/list-format.md](references/list-format.md) for the output format.

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: asks-destination-before-k-ruoka
+expected_outcome: |
+  The user did not say whether they want a shopping list, the cart, or a price check. The
+  skill asks which destination they want before acting, and does not default to the cart.

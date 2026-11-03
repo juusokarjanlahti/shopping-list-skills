@@ -1,18 +1,21 @@
 # 🛒 Shopping List Skills
 
-**Plan, review, and fill a grocery list on your own terms.** This repository contains four reusable [Agent Skills](https://agentskills.io), including skills for K‑Ruoka lists and S-kaupat carts. Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
+**Plan, review, and take a grocery list to the store on your own terms.** This repository contains three reusable [Agent Skills](https://agentskills.io): one plans a list, one analyzes it, and one takes a reviewed list to K‑Ruoka, S-kaupat, or Lidl. Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
 
 > [!IMPORTANT]
-> Allergies, prohibited products, and ingredients the user avoids are hard constraints. If a product's suitability cannot be verified, the skill says to leave it out.
+> - **The skills prepare; you commit.** No skill reserves a pickup or delivery time, places an order, or pays. Those steps stay with you on the store's own checkout page.
+> - Allergies, prohibited products, and ingredients you avoid are hard constraints. If a product's suitability cannot be verified, the skill leaves it out.
 
 ## Contents
 
 - [Skills](#-skills)
+- [Store support](#-store-support)
 - [First time using Codex](#-first-time-using-codex)
 - [Install](#-install)
 - [Examples](#-examples)
 - [Budget and prices](#-budget-and-prices)
 - [Browser access and responsibilities](#-browser-access-and-responsibilities)
+- [Testing](#-testing)
 - [Privacy](#-privacy)
 - [License](#-license)
 
@@ -22,10 +25,21 @@
 | --- | --- | --- |
 | [`plan-shopping-list`](.agents/skills/plan-shopping-list/SKILL.md) | You want to build a new list | Plans meals and a shopping list from your needs, budget, preferences, and constraints. |
 | [`analyze-shopping-list`](.agents/skills/analyze-shopping-list/SKILL.md) | You already have a list | Describes or reviews the list from the perspective you request, such as quantities, prices, or product groups. |
-| [`fill-k-ruoka-list`](.agents/skills/fill-k-ruoka-list/SKILL.md) | You want to copy a reviewed list to K‑Ruoka | Finds products for a K-Market, K-Supermarket, or K-Citymarket store selected in K‑Ruoka and adds them to your list, if your AI tool supports browser control and you can edit it. |
-| [`fill-s-kaupat-cart`](.agents/skills/fill-s-kaupat-cart/SKILL.md) | You want to build an S-kaupat cart | Adds clearly matched products from a reviewed list to your cart for a store and fulfillment option you chose. It stops before reserving a time, ordering, or paying. |
+| [`transfer-shopping-list`](.agents/skills/transfer-shopping-list/SKILL.md) | You want to take a reviewed list to a store | Price-checks the list at a store you choose, or adds it to a saved shopping list or the online cart. You choose the destination. |
 
-Use the skills independently. A typical flow is planning → review or analysis → optional transfer to a store. Filling a K‑Ruoka list and building an S-kaupat cart are separate actions and each requires its own request.
+Use the skills independently. A typical flow is planning → review or analysis → optional transfer to a store. Transfer needs its own request, and you choose the destination: a price check, a saved shopping list, or the cart. If you are unsure, use a shopping list: it is reusable and commits to nothing.
+
+Earlier versions had separate `fill-k-ruoka-list` and `fill-s-kaupat-cart` skills. Both are now part of `transfer-shopping-list`.
+
+## 🏪 Store support
+
+| Store | Price check | Shopping list | Cart | Order, time slot, payment |
+| --- | --- | --- | --- | --- |
+| K‑Ruoka (K-Market, K-Supermarket, K-Citymarket) | ✓ | ✓ | ✓ | Never by a skill |
+| S-kaupat (Prisma, S-market, Sale, Alepa) | ✓ | ✓ | ✓ | Never by a skill |
+| Lidl | ✓ store-specific offers | – | – | Not offered online |
+
+Store notes live in [`transfer-shopping-list/references/stores/`](.agents/skills/transfer-shopping-list/references/stores/). They reflect the sites as tested in November 2026. To add a store, add one file there describing its destinations and site behaviour.
 
 ## 🧑‍💻 First time using Codex
 
@@ -41,9 +55,9 @@ You do not need to install the skills separately to try them in Codex:
    Plan two days of meals for two people. My budget is €50. I have rice at home.
    ```
 
-   Other available skills are `$analyze-shopping-list`, `$fill-k-ruoka-list`, and `$fill-s-kaupat-cart`.
+   The other available skills are `$analyze-shopping-list` and `$transfer-shopping-list`.
 
-The skills are instructions Codex can follow; they do not provide browser access or log you in to a store. Filling a K‑Ruoka list or building an S-kaupat cart requires browser/computer control in your Codex setup and a signed-in account. For K‑Ruoka, you also need edit access to the target list. Review the products before asking Codex to fill a website list or cart.
+The skills are instructions Codex can follow; they do not provide browser access or log you in to a store. Transferring a list requires browser/computer control in your Codex setup. Adding to a shopping list or cart also requires a signed-in account with edit access to that list or cart. Review the products before asking Codex to transfer them.
 
 ## 🚀 Install
 
@@ -84,19 +98,17 @@ Say what you want to find out. The analysis skill does not assume the list shoul
 
 > Group this list by product category and estimate the cost of the packages I need to buy. Do not suggest changes.
 
-### Fill a K‑Ruoka list
+### Transfer a list to a store
 
-Review the plan first. Then separately ask the skill to fill the correct shared list:
+Review the plan first. Then ask separately, naming the store and the destination:
 
-> Add this reviewed list to my shared K‑Ruoka shopping list. Follow the budget and product preferences I gave you. Skip unclear products and tell me what you added. Do not move anything to the cart.
+> Add this reviewed list to my shared K‑Ruoka shopping list. Follow the budget and product preferences I gave you. Skip unclear products and tell me what you added.
 
-### Fill an S-kaupat cart
+> Add this reviewed list to my S-kaupat cart for pickup at my chosen Prisma store. Skip unclear products or substitutions and tell me what you added.
 
-Review the plan first, then separately ask the skill to add clear product matches to your cart:
+> Price-check this list at my chosen Lidl store, including its current offers. I will shop in the store.
 
-> Add this reviewed list to my S-kaupat cart for pickup at my chosen Prisma store. Skip unclear products or substitutions and tell me what you added. Do not change the pickup time, place an order, or pay.
-
-Invocation varies by platform. For example, Codex can use `$plan-shopping-list`, `$analyze-shopping-list`, `$fill-k-ruoka-list`, and `$fill-s-kaupat-cart`; Claude Code can use the corresponding `/skill-name` commands.
+Invocation varies by platform. For example, Codex can use `$plan-shopping-list`, `$analyze-shopping-list`, and `$transfer-shopping-list`; Claude Code can use the corresponding `/skill-name` commands.
 
 ## 💶 Budget and prices
 
@@ -111,15 +123,25 @@ Invocation varies by platform. For example, Codex can use `$plan-shopping-list`,
 
 ## 🖥️ Browser access and responsibilities
 
-Filling a K‑Ruoka list or building an S-kaupat cart requires browser or computer control in the AI tool you choose. You must be signed in to the relevant service; for K‑Ruoka, you also need permission to edit the specific list. A skill file does not grant these permissions.
+Transferring a list requires browser or computer control in the AI tool you choose. For a shopping list or cart, you must be signed in to the store's service and able to edit that list or cart. A skill file does not grant these permissions.
 
-The K‑Ruoka skill adds products to a shopping list. The S-kaupat skill adds products to a cart. Neither skill reserves a pickup/delivery time, places an order, or pays. Review the products and changes on the store website.
+`transfer-shopping-list` adds products only to the destination you name. It does not move list items to the cart unless you ask for the cart, and it never reserves a pickup or delivery time, places an order, or pays. Review the products and changes on the store website.
 
 You choose and configure your AI platform. You are responsible for its settings, permissions, privacy, and terms of use. Skills provide instructions, not a guarantee that every platform will behave the same way.
 
+## 🧪 Testing
+
+`transfer-shopping-list` includes scenario tests in [`evals/`](.agents/skills/transfer-shopping-list/evals/). Each test describes a situation on a store website and checks the skill's response, so it runs without a store account or a real cart. With Claude Code, run them from the skill's directory:
+
+```bash
+claude plugin eval . --allow-tools Write,Edit,Bash
+```
+
+These are real, billed model runs.
+
 ## 🔒 Privacy
 
-Do not publish shopping-list links or contents, credentials, allergies, dietary restrictions, or personal preferences in this repository. The [`preferences.md` profile template](.agents/skills/plan-shopping-list/references/preferences.md) is blank: keep personal information local and out of version control.
+Do not publish shopping-list links or contents, receipts, credentials, allergies, dietary restrictions, or personal preferences in this repository. The [`preferences.md` profile template](.agents/skills/plan-shopping-list/references/preferences.md) is blank: keep personal information local and out of version control.
 
 ## 📄 License
 
@@ -129,6 +151,7 @@ This repository is licensed under the [MIT License](LICENSE). The Agent Skills f
 
 - Product prices, discounts, and availability change.
 - The selected store can affect the available products and prices.
+- Store websites change; the store notes may fall behind them.
 - Store comparisons may be incomplete when a store's assortment, fulfillment fees, or travel costs are not visible.
 - Skills are instructions for AI tools, not a store product database or official integration.
-- Test changes in your own AI environment before filling a long shopping list.
+- Test changes in your own AI environment before transferring a long shopping list.

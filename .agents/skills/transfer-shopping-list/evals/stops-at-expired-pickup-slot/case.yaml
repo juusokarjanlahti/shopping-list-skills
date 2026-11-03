@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: stops-at-expired-pickup-slot
+expected_outcome: |
+  The pickup time expired midway. The skill stops, does not choose or renew a time, tells
+  the user that choosing a new time is their step, and reports which products are already
+  in the cart and which remain.

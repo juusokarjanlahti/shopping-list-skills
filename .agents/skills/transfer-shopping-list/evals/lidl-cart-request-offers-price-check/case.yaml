@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: lidl-cart-request-offers-price-check
+expected_outcome: |
+  Lidl's website has no cart or online orders. The skill explains this and offers a price
+  check at the user's Lidl store instead, without claiming to add anything.

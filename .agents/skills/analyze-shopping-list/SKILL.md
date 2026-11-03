@@ -24,6 +24,7 @@ If the user does not specify a perspective, briefly ask what they want to find o
 - If the requested metric is ambiguous, state your definition or ask a question when the choice would materially change the conclusion.
 - Suggest changes only when the user asks for recommendations. Tie them to the user's goals and explain relevant trade-offs.
 - Do not modify a store shopping list, cart, or user profile during analysis. That requires a separate request and the appropriate skill.
+- If the user asks you to analyze past purchases from store receipts, such as electronic receipts in a store account, use only the receipts they point to or ask you to open, and take only the details the analysis needs. Receipt prices are historical: label them with the purchase date. Do not copy receipt contents into a repository or saved profile.
 
 ## Hard food and allergy constraints
 
