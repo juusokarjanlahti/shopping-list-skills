@@ -1,6 +1,6 @@
 # 🛒 Shopping List Skills
 
-**Plan, review, and fill a grocery list on your own terms.** This repository contains three reusable [Agent Skills](https://agentskills.io), including a K‑Ruoka list-filling skill for K-Market, K-Supermarket, and K-Citymarket shoppers in Finland. Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
+**Plan, review, and fill a grocery list on your own terms.** This repository contains four reusable [Agent Skills](https://agentskills.io), including skills for K‑Ruoka lists and S-kaupat carts. Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
 
 > [!IMPORTANT]
 > Allergies, prohibited products, and ingredients the user avoids are hard constraints. If a product's suitability cannot be verified, the skill says to leave it out.
@@ -23,8 +23,9 @@
 | [`plan-shopping-list`](.agents/skills/plan-shopping-list/SKILL.md) | You want to build a new list | Plans meals and a shopping list from your needs, budget, preferences, and constraints. |
 | [`analyze-shopping-list`](.agents/skills/analyze-shopping-list/SKILL.md) | You already have a list | Describes or reviews the list from the perspective you request, such as quantities, prices, or product groups. |
 | [`fill-k-ruoka-list`](.agents/skills/fill-k-ruoka-list/SKILL.md) | You want to copy a reviewed list to K‑Ruoka | Finds products for a K-Market, K-Supermarket, or K-Citymarket store selected in K‑Ruoka and adds them to your list, if your AI tool supports browser control and you can edit it. |
+| [`fill-s-kaupat-cart`](.agents/skills/fill-s-kaupat-cart/SKILL.md) | You want to build an S-kaupat cart | Adds clearly matched products from a reviewed list to your cart for a store and fulfillment option you chose. It stops before reserving a time, ordering, or paying. |
 
-Use the skills independently. A typical flow is planning → review or analysis → optional K‑Ruoka list entry. The final step requires a separate request from you.
+Use the skills independently. A typical flow is planning → review or analysis → optional transfer to a store. Filling a K‑Ruoka list and building an S-kaupat cart are separate actions and each requires its own request.
 
 ## 🧑‍💻 First time using Codex
 
@@ -40,9 +41,9 @@ You do not need to install the skills separately to try them in Codex:
    Plan two days of meals for two people. My budget is €50. I have rice at home.
    ```
 
-   Other available skills are `$analyze-shopping-list` and `$fill-k-ruoka-list`.
+   Other available skills are `$analyze-shopping-list`, `$fill-k-ruoka-list`, and `$fill-s-kaupat-cart`.
 
-The skills are instructions Codex can follow; they do not provide browser access or log you in to K‑Ruoka. Filling a list requires browser/computer control in your Codex setup, a signed-in K‑Ruoka account, and edit access to the target list. Review any proposed list before asking Codex to fill the website list.
+The skills are instructions Codex can follow; they do not provide browser access or log you in to a store. Filling a K‑Ruoka list or building an S-kaupat cart requires browser/computer control in your Codex setup and a signed-in account. For K‑Ruoka, you also need edit access to the target list. Review the products before asking Codex to fill a website list or cart.
 
 ## 🚀 Install
 
@@ -89,7 +90,13 @@ Review the plan first. Then separately ask the skill to fill the correct shared 
 
 > Add this reviewed list to my shared K‑Ruoka shopping list. Follow the budget and product preferences I gave you. Skip unclear products and tell me what you added. Do not move anything to the cart.
 
-Invocation varies by platform. For example, Codex can use `$plan-shopping-list`, `$analyze-shopping-list`, and `$fill-k-ruoka-list`; Claude Code can use `/plan-shopping-list`, `/analyze-shopping-list`, and `/fill-k-ruoka-list`.
+### Fill an S-kaupat cart
+
+Review the plan first, then separately ask the skill to add clear product matches to your cart:
+
+> Add this reviewed list to my S-kaupat cart for pickup at my chosen Prisma store. Skip unclear products or substitutions and tell me what you added. Do not change the pickup time, place an order, or pay.
+
+Invocation varies by platform. For example, Codex can use `$plan-shopping-list`, `$analyze-shopping-list`, `$fill-k-ruoka-list`, and `$fill-s-kaupat-cart`; Claude Code can use the corresponding `/skill-name` commands.
 
 ## 💶 Budget and prices
 
@@ -97,13 +104,16 @@ Invocation varies by platform. For example, Codex can use `$plan-shopping-list`,
 - Estimate the cost of the packages to buy. This differs from the calculated value of only the ingredient amounts used in recipes.
 - Where possible, show the unit price (such as €/kg) alongside package price and package size. Unit price alone does not tell you which purchase costs less today.
 - State the store and the date of price information when known. Mark member prices, discounts, and missing prices; never invent prices.
+- For comparisons, name the stores you want considered and your preferred way to shop (in-store, pickup, or delivery). The first store named is the default primary store; other stores are comparison candidates. The skills do not assume a larger store is preferable or split a basket automatically.
+- Package size should reflect the planned need. A lower unit price does not by itself justify buying a larger pack: consider the full checkout price and likely leftover, and do not assume extra food will be used, shared, or gifted.
+- Include pickup, delivery, or travel costs only when they are visible or you provide them. Nearby-store comparisons need an area or postal code from you; vehicle access is optional and is never inferred.
 - If the budget is exceeded, report the difference instead of silently changing products. Do not violate allergies, prohibitions, or exact product requirements to save money.
 
 ## 🖥️ Browser access and responsibilities
 
-Filling a K‑Ruoka list requires browser or computer control in the AI tool you choose. You must be signed in to K‑Ruoka and have permission to edit the specific list. A skill file does not grant these permissions.
+Filling a K‑Ruoka list or building an S-kaupat cart requires browser or computer control in the AI tool you choose. You must be signed in to the relevant service; for K‑Ruoka, you also need permission to edit the specific list. A skill file does not grant these permissions.
 
-The skill adds products to a shopping list. It does not move them to the cart, place an order, pay, or change sharing settings. Review the products and changes on the store website.
+The K‑Ruoka skill adds products to a shopping list. The S-kaupat skill adds products to a cart. Neither skill reserves a pickup/delivery time, places an order, or pays. Review the products and changes on the store website.
 
 You choose and configure your AI platform. You are responsible for its settings, permissions, privacy, and terms of use. Skills provide instructions, not a guarantee that every platform will behave the same way.
 
@@ -119,5 +129,6 @@ This repository is licensed under the [MIT License](LICENSE). The Agent Skills f
 
 - Product prices, discounts, and availability change.
 - The selected store can affect the available products and prices.
+- Store comparisons may be incomplete when a store's assortment, fulfillment fees, or travel costs are not visible.
 - Skills are instructions for AI tools, not a store product database or official integration.
 - Test changes in your own AI environment before filling a long shopping list.

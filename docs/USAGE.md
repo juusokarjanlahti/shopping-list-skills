@@ -24,15 +24,15 @@ If you do not specify a perspective, the skill asks what you want to find out or
 
 ## 1. Plan and review a list
 
-Start `plan-shopping-list` using the method provided by your AI tool. Tell it the time period, household size, meals or goals, budget (target or hard limit), items already at home, preferences, and constraints. If you want a store-specific price estimate, name the store or branch.
+Start `plan-shopping-list` using the method provided by your AI tool. Tell it the time period, household size, meals or goals, budget (target or hard limit), items already at home, preferences, and constraints. For a store-specific price estimate, name the store or stores and say whether you prefer in-store shopping, pickup, or delivery. When you name several stores, the first is treated as primary and the others as comparison candidates unless you say they are equal alternatives or choose a different primary store. Nearby-store comparisons use an area or postal code you provide; vehicle access is optional.
 
 Review quantities, suggested products, substitutions, and budget assumptions before transferring the list to a store service.
 
-A budget estimate uses the prices of the packages you need to buy, not just the portion used in meals. When prices are available, compare package price and size as well as unit prices for comparable products. Missing prices are reported, not guessed.
+A budget estimate uses the prices of the packages you need to buy, not just the portion used in meals. When prices are available, compare package price and size as well as unit prices for comparable products. Prefer package amounts that reasonably meet the planned need and avoid unnecessary surplus; a lower unit price alone does not justify a larger pack. Missing prices are reported, not guessed. A store comparison uses the same basket where possible, keeps unavailable items visible, and does not split the basket across stores unless you ask it to consider that option.
 
 ## 2. Fill a K‑Ruoka list
 
-Start `fill-k-ruoka-list` in your AI tool. Provide the reviewed list, the correct shared K‑Ruoka list or its link, the selected store if known, and your priorities for brands, domestic origin, fresh or frozen, preparation level, and package size. Say whether substitutions are allowed. The skill skips unclear products and reports them at the end.
+Start `fill-k-ruoka-list` in your AI tool. Provide the reviewed list, the correct shared K‑Ruoka list or its link, the store or stores you want used, and your priorities for brands, domestic origin, fresh or frozen, preparation level, and package size. If the site has a different store selected, confirm the intended store before changes are made. Say whether substitutions are allowed. The skill skips unclear products and reports them at the end.
 
 Example:
 
@@ -40,17 +40,27 @@ Example:
 
 Include the reviewed list after your request.
 
+## 3. Build an S-kaupat cart
+
+Start `fill-s-kaupat-cart` and provide the reviewed list, the store you chose, and whether you want pickup or delivery. The skill checks the visible store and fulfillment details, adds clear matches to the cart, and skips unresolved products or substitutions. It verifies additions against the cart and reports what was added.
+
+Example:
+
+> Add the reviewed list below to my S-kaupat cart for pickup at my chosen Prisma store. Skip unclear products or substitutions and tell me what you added. Do not change the pickup time, place an order, or pay.
+
+You must be signed in and have browser/computer control in your AI tool. If the pickup time is missing or expired, select or renew it yourself unless you explicitly ask the AI tool to do that. Building the cart does not authorize reserving a time, placing an order, or paying. The skill stops before checkout.
+
 ## Browser access and responsibilities
 
-Filling a K‑Ruoka list requires browser or computer control in the AI tool you choose. You must sign in with your own account and confirm that you can edit the shared list. Without these conditions, the skill cannot fill the list.
+Filling a K‑Ruoka list or building an S-kaupat cart requires browser or computer control in the AI tool you choose and a signed-in account. For K‑Ruoka, you must also be able to edit the shared list. Without these conditions, the skill cannot make the requested changes.
 
-The skill instructions do not grant access to a browser or account. You are responsible for your chosen platform's tools, settings, privacy, and terms. Review product choices and confirm on the site that changes appear on the correct list.
+The skill instructions do not grant access to a browser or account. You are responsible for your chosen platform's tools, settings, privacy, and terms. Review product choices and confirm on the site that changes appear on the correct list or cart.
 
-Product search may show a different store's assortment from the one selected for the shopping list. Before making changes, check the list name, store, edit access, and current items. Stop if the correct list or edit access is unclear.
+Product search may show a different store's assortment from the one selected for the shopping list or cart. Before making changes, check the destination list or cart, intended store, edit access, and current items. A site-selected branch does not mean you chose it. Stop if the correct list or edit access is unclear. Do not infer your precise location or access to a car, and do not split a basket between stores unless you ask for that comparison.
 
 ## Scope of changes
 
-This skill only adds products to the requested shopping list. Moving items to a cart, placing an order, paying, selecting delivery, and changing list-sharing settings are separate actions and are not included.
+The K‑Ruoka skill adds products to the requested shopping list. The S-kaupat skill adds products to the cart. Neither skill reserves or changes a pickup/delivery slot, places an order, or pays. Choosing products or selecting a time slot does not authorize an order. Any order requires a separate, explicit request and a review of the final products, known fees, and total against the user's stated spending limit.
 
 ## Final report
 
@@ -60,8 +70,8 @@ At the end, report:
 - skipped products and the reasons;
 - the selected store and unavailable products;
 - the amount shown by the site, if reliable;
-- whether the additions were saved to the list;
-- that no cart or order was created.
+- whether the additions were saved to the list or cart, and the selected fulfillment method for an S-kaupat cart;
+- that no order was placed; for K‑Ruoka, also that nothing was moved to the cart.
 
 ## Personal information
 

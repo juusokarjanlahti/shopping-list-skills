@@ -11,6 +11,10 @@ budget_amount: null
 budget_currency: EUR
 budget_type: target # target or hard_limit; ask if needed
 price_estimate_store: null
+preferred_stores: []
+store_comparison_mode: null # primary_plus_alternatives or equal_candidates
+preferred_fulfillment: null # in_store, pickup, or delivery
+vehicle_access: null # record only when the user states it
 dietary_rules: []
 allergies: []
 never_buy: []
@@ -33,7 +37,10 @@ Interpret the fields as follows:
 - Brand, domestic origin, frozen/fresh, and convenience are preferences unless the user says "only", "must be", or similar. Report material trade-offs without claiming a preference was met when it was not.
 - `budget_amount` is a target unless the user defines it as a hard limit (`budget_type: hard_limit`). If the plan exceeds a target, state the estimated difference and offer changes. For a hard limit, do not present an over-budget list as fitting the budget. Never silently break dietary restrictions, exact product requirements, or other hard constraints to meet the amount.
 - `price_estimate_store` identifies the store or branch when the user wants a store-specific estimate. Prices and availability can vary by store, date, member pricing, and discounts; report the source and date when available.
+- `preferred_stores` records stores the user names for a request. If multiple stores are listed without further direction, the first is primary and the rest are comparison candidates; do not assume the biggest store is primary. `store_comparison_mode` records whether the user wants a primary store compared with alternatives or regards all named stores as equal candidates. Do not assume they want the basket split across stores.
+- `preferred_fulfillment` records the user's stated preference for in-store shopping, pickup, or delivery. Include fees and minimums only when shown or supplied. `vehicle_access` is optional context the user may provide for nearby-store comparisons; never infer it from location, browser state, or other data.
 - `prefer_frozen` and `convenience_level` describe shopping preferences. Frozen food may reduce waste and prep; fresh food may suit a recipe better. Ready-to-use products may cost more, so compare the full package price too.
+- `avoid_food_waste` guides package-size choices. Prefer the smallest package or number of packages that reasonably meets the planned need. Do not assume future use, sharing, or gifting to justify a larger package. If the user gives a meal-planning horizon, use it; otherwise ask only when likely surplus materially changes the choice.
 - Confirm `pantry_items` with the user. Do not treat an old list as current without checking.
 
 Ask whether the user wants a profile saved if persistence would materially help. Do not create or write a profile file automatically. If a profile exists in the local workspace, respect its scope and do not copy personal information into a public repository.

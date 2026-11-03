@@ -5,9 +5,9 @@ Apply criteria in this order. A later criterion cannot make up for violating an 
 1. **Hard prohibitions and exact requirements.** Exclude products that contain an allergen or prohibited ingredient, and products the user explicitly does not want. Preserve exact product and brand requests. If ingredient information is not visible enough to assess the product, skip it and explain why.
 2. **Product identity and intended use.** Confirm that the result is the requested food and can be used as requested. A name match is not proof: cheese containing chili is not chili powder; tomato-basil sauce is not dried basil; cat food containing salmon is not salmon fillet.
 3. **Required form and attributes.** Match requested fresh/frozen, ready-made/raw, origin, brand, dietary, and other attributes. Treat an attribute as a flexible preference only if the user did not make it mandatory.
-4. **Availability at the selected store.** Use availability for the store selected on the shopping list if the site shows it. Finding an item in a general search for another store does not prove it is available at the list's store.
+4. **Availability at the confirmed store or stores.** Use availability for each confirmed store if the site shows it. Finding an item in a general search does not prove it is available at every store. For comparisons, keep store-specific items, prices, and missing products separate.
 5. **Price and budget, when they are part of the user's goal.** Do not assume price is a selection criterion. If the user asks for the cheapest option or provides a budget/price limit, compare unit prices (€/kg, €/l, or €/item) for suitable alternatives and show package price and size alongside them. Compare unit prices only for equivalent products; account for drained weight where relevant. Check offers, member prices, variable-weight items, and package-label differences. If unit price is missing or unreliable, compare package prices only when product type and size are clear; otherwise do not make a price-based choice.
-6. **Package size and effect on the shopping total.** Work out how many packages are needed to meet the list quantity. Count the full price of each package toward the budget, not just the proportional cost of the amount used. Show a larger package's possible unit-price saving alongside its higher checkout cost and any unused amount. Do not decide whether unit price, checkout total, leftover stock, or waste matters most unless the user has said. If this could materially affect the choice and the user's priority is unknown, ask or present options.
+6. **Package size, waste, and shopping total.** Treat the requested quantity as the expected need. Prefer the smallest available package or combination that reasonably meets an approximate quantity and minimizes avoidable surplus; do not upsize solely for a lower unit price. Count the full package price toward the budget and show package size, unit price, and likely leftover when useful. Do not assume surplus will be used later, shared, or gifted. If package choices create a material cost-versus-waste trade-off and the user's priority does not resolve it, show the options or ask before adding.
 7. **Convenience.** Select ready-to-use or pre-cut food if the user requested it or said they value convenience. Do not assume convenience justifies a higher price. Do not treat frozen and fresh, raw and cooked, or whole and pre-prepared foods as automatically equivalent.
 
 ## If no selection criterion was provided
@@ -17,6 +17,14 @@ Preserve the exact product the user named. If they gave only a generic item, do 
 ## Shopping-list budget total
 
 When price and quantity are reliably visible, add the prices of packages to be added to the list and report the total as an estimate. Say if the amount is partial, uses member prices, or is otherwise uncertain. Do not include prices the site did not show or assess budget fit based on missing prices. If the budget limit would be exceeded, report the overage and ask the user which savings changes they want. A shopping-list total is not an order or delivery total.
+
+## Comparing stores
+
+- Use the first named store as primary and later stores as comparison candidates unless the user marks another as primary or says the stores are equal alternatives.
+- Compare the same requested basket at each named store where possible, using suitable products and the number of full packages needed. Report unavailable items and substitutions separately; do not hide them inside a total.
+- Default to one store for the whole basket. Do not choose a larger store just because it may have a wider assortment, and do not split the basket unless the user explicitly asks to consider that option.
+- When the user allows split-store shopping, include known extra trip, pickup, or delivery costs. Keep unknown fees and travel costs separate rather than guessing.
+- Do not infer the user's location or access to a car. Use a postal code or area they provide for the comparison, and ask before using precise location data.
 
 ## Substitutions and uncertainty
 
