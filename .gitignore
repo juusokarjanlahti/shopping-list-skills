@@ -1,0 +1,7 @@
+# Keep personal preference profiles and local environment data out of source control.
+user-preferences.yml
+user-preferences.yaml
+.env
+.env.*
+!.env.example
+.DS_Store
