@@ -8,6 +8,7 @@
 ## Contents
 
 - [Skills](#-skills)
+- [First time using Codex](#-first-time-using-codex)
 - [Install](#-install)
 - [Examples](#-examples)
 - [Budget and prices](#-budget-and-prices)
@@ -24,6 +25,24 @@
 | [`fill-k-ruoka-list`](.agents/skills/fill-k-ruoka-list/SKILL.md) | You want to copy a reviewed list to K‑Ruoka | Finds products for a K-Market, K-Supermarket, or K-Citymarket store selected in K‑Ruoka and adds them to your list, if your AI tool supports browser control and you can edit it. |
 
 Use the skills independently. A typical flow is planning → review or analysis → optional K‑Ruoka list entry. The final step requires a separate request from you.
+
+## 🧑‍💻 First time using Codex
+
+You do not need to install the skills separately to try them in Codex:
+
+1. Download this repository from GitHub with **Code → Download ZIP**, then extract the archive. Alternatively, clone the repository with Git.
+2. In Codex, open the extracted `shopping-list-skills` folder as your project. Open the repository root—the folder containing this `README.md` and the `.agents/` directory.
+3. Start a chat in that project. Codex discovers project skills in `.agents/skills/` automatically.
+4. Ask naturally, or call a skill by name. For example:
+
+   ```text
+   $plan-shopping-list
+   Plan two days of meals for two people. My budget is €50. I have rice at home.
+   ```
+
+   Other available skills are `$analyze-shopping-list` and `$fill-k-ruoka-list`.
+
+The skills are instructions Codex can follow; they do not provide browser access or log you in to K‑Ruoka. Filling a list requires browser/computer control in your Codex setup, a signed-in K‑Ruoka account, and edit access to the target list. Review any proposed list before asking Codex to fill the website list.
 
 ## 🚀 Install
 
