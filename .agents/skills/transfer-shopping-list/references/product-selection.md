@@ -12,7 +12,9 @@ These rules apply to every store and destination: a price check, a shopping list
 
 ## If no selection criterion was provided
 
-Preserve the exact product the user named. If they gave only a generic item, do not choose an option based on price, origin, brand, preparation level, or another value-based criterion without being asked. If the site requires choosing one option and the user's prior instructions do not resolve it, skip the item and list the suitable options in the final report, so the user can choose without the run stopping halfway. Do not apply a default 20% price threshold or another preference of your own.
+Preserve the exact product the user named. For a generic item such as "milk", "rice", or "coffee", choose the ordinary everyday version: the standard variant rather than organic, lactose-free, flavoured, or premium, and the lower-priced of equivalent standard products. Name your choice in the final report so the user can change it. Do not ask about variants the user did not raise; a list that skips its basic items is less useful than one with an ordinary choice the user can swap.
+
+Skip a generic item and list the options in the final report only when its variants are used in different ways and nothing in the conversation shows which one is meant, for example cooking cream versus whipping cream. Beyond choosing the ordinary version, do not apply origin, brand, preparation-level, or other preferences of your own, and do not apply a default price threshold.
 
 ## Budget total
 
