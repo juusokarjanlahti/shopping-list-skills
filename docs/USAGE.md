@@ -35,7 +35,7 @@ A budget estimate uses the prices of the packages you need to buy, not just the 
 Start `transfer-shopping-list` in your AI tool. Name the store and choose a destination:
 
 - **Price check** — prices and availability for the list at one store, returned in the chat. Nothing is saved to your account. This is the only option for Lidl, whose website has no shopping lists or online orders.
-- **Shopping list** — products are added to a saved list in your K‑Ruoka or S-kaupat account. A list is reusable and commits to nothing, so it is the suggested choice if you are unsure.
+- **Shopping list** — products are added to a saved list in your K‑Ruoka or S-kaupat account. The skill records each product's price as it adds it, so the finished list is also your price check. A list is reusable and commits to nothing, so it is the suggested choice if you are unsure. Once it is ready, decide whether to shop in the store or ask for the list to be moved to the cart for pickup or delivery.
 - **Cart** — products are added to your K‑Ruoka or S-kaupat cart for a store and pickup or delivery.
 
 If you do not name a destination, the skill asks. It never chooses the cart on its own.

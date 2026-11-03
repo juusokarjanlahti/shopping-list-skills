@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: asks-about-existing-cart-upfront
+expected_outcome: |
+  The list will later be moved to the cart for pickup, and the cart already has products. Before the
+  first change, the skill asks in one message whether those products belong to this purchase and the
+  25 € budget, and it does not remove them on its own.
