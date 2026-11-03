@@ -1,6 +1,6 @@
 ---
 name: fill-k-ruoka-list
-description: Fill the user's K‑Ruoka shopping list by adding requested products through the site's browser interface. Use when the user asks to add a shopping list to K‑Ruoka in an Agent Skills-compatible AI tool; not for ordering or purchasing products.
+description: Find grocery products and fill the user's K‑Ruoka shopping list through the site's browser interface. Use when the user asks to add products for a K-Market, K-Supermarket, or K-Citymarket store selected in K‑Ruoka, using an Agent Skills-compatible AI tool; not for ordering or purchasing products.
 metadata:
   short-description: Fill a K‑Ruoka shopping list carefully
 ---

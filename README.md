@@ -1,6 +1,6 @@
 # 🛒 Shopping List Skills
 
-**Plan, review, and fill a grocery list on your own terms.** This repository contains three reusable [Agent Skills](https://agentskills.io). Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
+**Plan, review, and fill a grocery list on your own terms.** This repository contains three reusable [Agent Skills](https://agentskills.io), including a K‑Ruoka list-filling skill for K-Market, K-Supermarket, and K-Citymarket shoppers in Finland. Your needs and constraints guide the work: the tools do not assume what your shopping list should look like.
 
 > [!IMPORTANT]
 > Allergies, prohibited products, and ingredients the user avoids are hard constraints. If a product's suitability cannot be verified, the skill says to leave it out.
@@ -21,7 +21,7 @@
 | --- | --- | --- |
 | [`plan-shopping-list`](.agents/skills/plan-shopping-list/SKILL.md) | You want to build a new list | Plans meals and a shopping list from your needs, budget, preferences, and constraints. |
 | [`analyze-shopping-list`](.agents/skills/analyze-shopping-list/SKILL.md) | You already have a list | Describes or reviews the list from the perspective you request, such as quantities, prices, or product groups. |
-| [`fill-k-ruoka-list`](.agents/skills/fill-k-ruoka-list/SKILL.md) | You want to copy a reviewed list to K‑Ruoka | Finds products and adds them to the K‑Ruoka list you specify, if your AI tool supports browser control and you can edit that list. |
+| [`fill-k-ruoka-list`](.agents/skills/fill-k-ruoka-list/SKILL.md) | You want to copy a reviewed list to K‑Ruoka | Finds products for a K-Market, K-Supermarket, or K-Citymarket store selected in K‑Ruoka and adds them to your list, if your AI tool supports browser control and you can edit it. |
 
 Use the skills independently. A typical flow is planning → review or analysis → optional K‑Ruoka list entry. The final step requires a separate request from you.
 
