@@ -1,36 +1,36 @@
 ---
 name: plan-shopping-list
-description: Suunnittele käyttäjän tarpeisiin, aterioihin, budjettiin, mieltymyksiin, ruokavalioon ja ruokakomeron sisältöön sopiva ruokaostoslista. Käytä, kun käyttäjä pyytää rakentamaan tai suunnittelemaan ostoslistan missä tahansa Agent Skills -yhteensopivassa tekoälytyökalussa.
+description: Plan a grocery shopping list around the user's meals, budget, needs, preferences, dietary rules, and pantry. Use when the user asks to build or plan a shopping list in any Agent Skills-compatible AI tool.
 metadata:
-  short-description: Suunnittele ostoslista käyttäjän tarpeiden mukaan
+  short-description: Plan a shopping list around the user's needs
 ---
 
-# Suunnittele ostoslista
+# Plan a shopping list
 
-Tee käytännöllinen, tarkistettavissa oleva lista, joka vastaa käyttäjän tilannetta. Älä oleta ruokavaliota, kotitalouden kokoa, budjettia, ruokakomeron sisältöä, mieltymyksiä tai allergioita. Kysy vain asioista, jotka vaikuttavat listaan olennaisesti. Jos käyttäjä haluaa edetä nopeasti, kerro oletukset ja tee luonnos.
+Create a practical, reviewable list that fits the user's situation. Do not assume their diet, household size, budget, pantry contents, preferences, or allergies. Ask only about details that materially affect the list. If the user wants to move quickly, state your assumptions and draft the list.
 
-Käsittele käyttäjän ilmoittamat allergiat, kielletyt tuotteet ja vältettävät ainesosat ehdottomina rajoitteina. Älä ehdota, suunnittele tai suosittele niiden vastaista tuotetta hinnan, saatavuuden, helppouden, ruokalajin tai käyttäjän muun mieltymyksen vuoksi. Jos ainesosat tai ristikontaminaatiovaroitukset ovat epäselvät, jätä tuote pois ja kerro miksi. Älä väitä tuotetta turvalliseksi ilman varmistettavaa tietoa.
+Treat user-reported allergies, prohibited products, and ingredients to avoid as hard constraints. Never suggest, plan, or recommend a product that violates them because of price, availability, convenience, a recipe, or another preference. If ingredient or cross-contamination information is unclear, exclude the product and explain why. Do not claim that a product is safe without verifiable information.
 
-## Työnkulku
+## Workflow
 
-1. Selvitä laajuus: kuinka monelle päivälle tai aterialle, kuinka monelle hengelle, budjetti (tavoite vai ehdoton yläraja), halutaanko hinta-arvio ja mille kaupalle sekä haluaako käyttäjä vain ruoka-aineet vai myös kodin perustarvikkeet.
-2. Erota ehdottomat rajoitteet (allergiat, vältettävät tuotteet, ruokavaliosäännöt, tarkat tuotteet) mieltymyksistä (esim. kotimainen, luomu, merkki, edullisuus, pakaste, helppous).
-3. Kysy, mitä kotona jo on, kun tieto ehkäisee merkittävää päällekkäisostoa. Jos ruokakomeron sisältöä ei tiedetä, älä väitä tuotteen olevan siellä.
-4. Laadi lista käytännöllisine määrineen. Yhdistä useisiin aterioihin tarvittavat samat ainekset ja poista kaksoiskappaleet.
-5. Tarkista, että määrät, budjetti, ateriasuunnitelma ja rajoitteet sopivat yhteen. Merkitse hinta-arvion lähde, ajankohta, kauppa, epävarmuus ja ratkaisemattomat korvaavat tuotteet.
-6. Palauta lista kaupassa puhelimella luettavissa kategorioissa, määrineen ja selvästi merkittyine oletuksineen.
+1. Establish the scope: number of days or meals, household size, budget (target or hard limit), whether a price estimate is wanted and for which store, and whether the user wants only food or household essentials too.
+2. Separate hard constraints (allergies, prohibited products, dietary rules, exact products) from preferences (for example domestic origin, organic, brand, price, frozen, or convenience).
+3. Ask what food is already at home when that could prevent meaningful duplicate purchases. If pantry contents are unknown, do not claim an item is already there.
+4. Draft the list with practical quantities. Combine ingredients used in multiple meals and remove duplicates.
+5. Check that quantities, budget, meal plan, and constraints are consistent. State the source, date, store, uncertainty, and unresolved substitutions for any price estimate.
+6. Return the list in familiar store categories that are easy to read on a phone, with quantities and clearly stated assumptions.
 
-## Valintaperiaatteet
+## Selection principles
 
-- Allergiat, käyttäjän kiellot ja vältettävät ainesosat ovat ehdottomia poissulkuja. Mikään hinta, tarjous, saatavuus tai muu tavoite ei voi ohittaa niitä. Jos pyydetty tuote on ristiriidassa tällaisen rajoitteen kanssa, jätä se pois ja ilmoita ristiriidasta; älä lisää sitä.
-- Muut ehdottomat rajoitteet ovat suodattimia, eivät pisteitä. Älä koskaan ohita niitä halvemman hinnan vuoksi.
-- Mieltymys voi ohjata valintoja muuttumatta salaa ehdottomaksi säännöksi. Jos toiveen täyttäminen maksaa olennaisesti enemmän, kerro erosta silloin kun sillä on merkitystä.
-- Erota budjettitavoite ehdottomasta enimmäissummasta. Älä oleta budjettia, äläkä lupaa listan mahtuvan siihen ilman hintoihin perustuvaa laskelmaa.
-- Budjettiarviossa laske mukaan ostettavien pakkausten kokonaishinnat, ei vain reseptiin käytettävien grammamäärien laskennallista osuutta. Jätä käyttäjän jo omistamat ainekset pois ostosummasta, mutta mainitse niiden mahdollinen käyttö.
-- Käytä kilohintaa, litrahintaa tai kappalehintaa vain keskenään vertailukelpoisille tuotteille. Näytä rinnalla pakkaushinta ja pakkauskoko, koska yksikköhinnaltaan halvempi iso pakkaus voi nostaa tämän ostoskerran loppusummaa.
-- Jos hinta- tai pakkaustieto puuttuu, merkitse kohta arvioimattomaksi tai anna selvästi rajattu arvio; älä keksi hintoja. Jos budjetti ei näytä riittävän, kerro erotus ja tarjoa käyttäjän tavoitteisiin sopivia vaihtoehtoja. Älä muuta ehdottomia rajoitteita tai tarkkoja tuotevaatimuksia budjetin takia.
-- Pidä lista käytännöllisenä: valitse eri aterioihin sopivia aineksia, järkeviä pakkausmääriä ja tuotteita, jotka ehditään todennäköisesti käyttää ennen pilaantumista.
-- Älä keksi määrää, jos sillä on olennainen vaikutus hintaan tai turvallisuuteen. Kysy tai merkitse arvio selvästi.
-- Älä lisää tuotteita kaupan sivuston ostoslistalle; tämä taito suunnittelee listan. Käytä `fill-k-ruoka-list`-taitoa vain, kun käyttäjä pyytää viemään listan K‑Ruokaan.
+- Allergies, user prohibitions, and ingredients to avoid are absolute exclusions. No price, discount, availability, or other goal can override them. If a requested item conflicts with a hard constraint, leave it out and report the conflict; do not add it.
+- Other hard constraints are filters, not scores. Never ignore them to choose a cheaper product.
+- A preference may guide choices without silently becoming a hard requirement. If meeting it materially affects cost, explain the trade-off when relevant.
+- Distinguish a budget target from a hard spending limit. Do not assume a budget or promise that the list fits without price-based calculation.
+- For a budget estimate, include the full prices of packages to buy, not just the calculated cost of the quantities used in recipes. Exclude ingredients the user already owns from the shopping total, but mention that they will be used.
+- Use unit prices per kilogram, litre, or item only for comparable products. Show package price and size alongside the unit price because a cheaper unit price on a large package can still increase today's checkout total.
+- If price or package information is missing, mark the item as unpriced or give a clearly bounded estimate; never invent prices. If the budget appears insufficient, state the difference and offer options based on the user's goals. Do not change hard constraints or exact product requirements to meet the budget.
+- Keep the list practical: choose ingredients that work across meals, sensible package amounts, and products likely to be used before they spoil.
+- Do not invent quantities when they materially affect price or safety. Ask or clearly label an estimate.
+- Do not add products to a store website's shopping list; this skill plans the list. Use `fill-k-ruoka-list` only when the user asks to transfer the list to K‑Ruoka.
 
-Lue [references/preferences.md](references/preferences.md) profiilikentistä ja mieltymysten käsittelystä. Lue [references/list-format.md](references/list-format.md) listan tulostusmuodosta.
+Read [references/preferences.md](references/preferences.md) for profile fields and handling preferences. Read [references/list-format.md](references/list-format.md) for the output format.

@@ -1,43 +1,43 @@
 ---
 name: analyze-shopping-list
-description: Analysoi käyttäjän antama ruoka- tai ostoslista käyttäjän valitsemasta näkökulmasta, kuten sisällön, hintojen, pakkauskoon tai omien mieltymysten perusteella. Käytä, kun käyttäjä pyytää kuvaamaan, tarkistamaan tai vertailemaan olemassa olevaa listaa.
+description: Analyze a grocery or shopping list from the user's chosen perspective, such as contents, prices, package sizes, or their own preferences. Use when the user asks to describe, review, or compare an existing list.
 metadata:
-  short-description: Analysoi ostoslista käyttäjän valitsemasta näkökulmasta
+  short-description: Analyze a shopping list from the user's perspective
 ---
 
-# Analysoi ostoslista
+# Analyze a shopping list
 
-Kuvaa tai tarkastele käyttäjän antamaa listaa hänen pyytämästään näkökulmasta. Lista ei ole oletusarvoisesti hyvä, huono, terveellinen, kallis, tasapainoinen tai puutteellinen. Älä päättele, millaiseksi sen pitäisi muuttua.
+Describe or review the user's list from the perspective they request. By default, a list is not good, bad, healthy, expensive, balanced, or incomplete. Do not decide what it should become.
 
-Jos käyttäjä ei määrittele näkökulmaa, kysy lyhyesti, mitä hän haluaa selvittää. Jos pyyntö on riittävän selvä, vastaa ilman tarpeettomia lisäkysymyksiä. Voit tarjota neutraaleja vaihtoehtoja, kuten tuoteryhmät, määrät, hinnat, kilohinnat, kotimaisuus, tuotemerkit, pakasteet, käyttövalmius, päällekkäisyydet tai käyttäjän omat tavoitteet, mutta älä valitse niitä käyttäjän puolesta.
+If the user does not specify a perspective, briefly ask what they want to find out. If the request is clear enough, answer without unnecessary questions. You may offer neutral options such as product groups, quantities, prices, unit prices, domestic origin, brands, frozen foods, ready-to-use foods, duplicates, or the user's own goals, but do not choose one for them.
 
-## Neutraali analyysi
+## Neutral analysis
 
-- Erota listasta suoraan havaittavat tiedot, laskelmat, tulkinnat ja epävarmuudet.
-- Kerro, mihin tieto perustuu. Älä keksi hintoja, pakkauskokoja, alkuperää, ainesosia tai tuotetietoja.
-- Budjetti- tai hintapyynnössä erottele käyttäjän budjettitavoite ja ehdoton yläraja. Laske arvio ostettavien pakkausten hinnoista; jos hinnat puuttuvat, kerro mitä ei voi laskea.
-- Näytä yksikköhinta ja pakkaushinta/pakkauskoko rinnakkain silloin, kun tiedot ovat saatavilla. Yksikköhinnat ovat vertailukelpoisia vain, jos tuotteen tyyppi, määräyksikkö ja vertailun peruste (esimerkiksi valutettu paino) vastaavat toisiaan.
-- Erota ostoskorin arvioitu kassasumma käytettyjen ainesosien laskennallisesta osuudesta. Merkitse hinta-arvion lähde, kauppa, ajankohta ja se, sisältääkö se jäsenhintoja tai tarjouksia.
-- Jos budjetti ylittyy tai sitä ei voi todentaa, sano se suoraan. Älä ehdota säästömuutoksia, ellei niitä pyydetä; pyydettäessä pidä allergiat ja muut ehdottomat rajat voimassa.
-- Käytä käyttäjän antamia mittareita ja rajoitteita. Älä tuo niiden tilalle yleistä käsitystä siitä, mikä on parempi valinta.
-- Älä luokittele tuotteita tai käyttäjän valintoja arvottavilla termeillä, kuten "huono", "epäterveellinen" tai "turha", ellei käyttäjä pyydä sellaista arviota ja määrittele arviointiperustetta.
-- Jos pyydetty mittari on monitulkintainen, kerro käyttämäsi määritelmä tai kysy tarkennus, jos valinta muuttaisi johtopäätöstä olennaisesti.
-- Ehdota muutoksia vain, jos käyttäjä pyytää kehitysehdotuksia. Esitä ehdotukset käyttäjän tavoitteisiin sidottuina vaihtoehtoina ja kerro mahdollinen vaihtokauppa.
-- Älä muokkaa kaupan ostoslistaa, ostoskoria tai käyttäjäprofiilia analyysin aikana. Se vaatii erillisen pyynnön ja sopivan taidon.
+- Separate directly observable details, calculations, interpretations, and uncertainties.
+- Say what information supports each claim. Do not invent prices, package sizes, origin, ingredients, or product details.
+- For budget or price requests, distinguish the user's budget target from a hard limit. Estimate the cost of packages to buy; if prices are missing, explain what cannot be calculated.
+- When available, show unit price alongside package price and package size. Unit prices are comparable only when product type, unit, and comparison basis (for example, drained weight) match.
+- Separate the estimated checkout total from the calculated value of ingredients used. State the price source, store, date, and whether prices include membership discounts or offers.
+- If the budget is exceeded or cannot be verified, say so directly. Do not suggest savings unless requested; if they are requested, keep allergies and other hard constraints in force.
+- Use the user's own criteria and constraints. Do not replace them with a generic view of what is a better choice.
+- Do not label products or the user's choices with value judgments such as "bad", "unhealthy", or "unnecessary" unless the user requests that assessment and defines its criteria.
+- If the requested metric is ambiguous, state your definition or ask a question when the choice would materially change the conclusion.
+- Suggest changes only when the user asks for recommendations. Tie them to the user's goals and explain relevant trade-offs.
+- Do not modify a store shopping list, cart, or user profile during analysis. That requires a separate request and the appropriate skill.
 
-## Ehdottomat ruoka- ja allergiarajoitteet
+## Hard food and allergy constraints
 
-Käyttäjän ilmoittamat allergiat, kielletyt tuotteet, ainesosat ja muut ehdottomat rajoitteet pysyvät voimassa kaikessa analyysissä. Älä suosittele niiden vastaista tuotetta tai esitä rajoitetta yhtenä punnittavana mieltymyksenä. Jos käyttäjän pyytämä analyysi edellyttää tuotteen sopivuuden arviointia, älä päättele turvallisuutta puutteellisista tiedoista. Kerro, mitä tietoa ei ole saatavilla; epäselvä tuote ei ole vahvistetusti sopiva.
+User-reported allergies, prohibited products or ingredients, and other hard constraints remain in effect throughout analysis. Do not recommend a product that conflicts with them or treat a restriction as a preference to weigh against something else. If the requested analysis requires checking a product's suitability, do not infer safety from incomplete information. State what information is missing; an unclear product is not confirmed suitable.
 
-Jos listan rivi näyttää olevan ristiriidassa tunnetun allergian tai kiellon kanssa, osoita ristiriita neutraalisti ja jätä tuotteen turvallisuus arvioimatta, ellei luotettavia ainesosatietoja ole saatavilla. Älä poista tai muuta listan riviä ilman käyttäjän erillistä pyyntöä.
+If a list item appears to conflict with a known allergy or prohibition, point out the conflict neutrally. Do not assess the product as safe or unsafe unless reliable ingredient information is available. Do not remove or change a list item without a separate user request.
 
-## Vastausmuoto
+## Response format
 
-Rakenna vastaus pyynnön laajuuden mukaan. Tavallisesti:
+Shape the response to the request. Usually:
 
-1. kerro analyysin näkökulma;
-2. esitä havainnot ja laskelmat selkeästi;
-3. merkitse epävarmat tai puuttuvat tiedot;
-4. anna mahdolliset suositukset vain, jos niitä pyydettiin, ja sido ne käyttäjän ilmoittamiin tavoitteisiin.
+1. state the analysis perspective;
+2. present findings and calculations clearly;
+3. mark uncertain or missing information;
+4. give recommendations only when requested, tied to the user's stated goals.
 
-Lue [references/analysis-guidelines.md](references/analysis-guidelines.md) esimerkeistä ja yleisistä tarkistuksista.
+Read [references/analysis-guidelines.md](references/analysis-guidelines.md) for examples and general checks.

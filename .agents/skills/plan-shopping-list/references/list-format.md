@@ -1,27 +1,27 @@
-# Ostoslistan tulostusmuoto
+# Shopping list output format
 
-Palauta lista, jota voi käyttää kaupassa puhelimella. Ryhmittele tuotteet muutamaan tuttuun kaupan osastoon. Jokaisella rivillä tulisi olla:
+Return a list that is easy to use in a store on a phone. Group products under a few familiar store departments. Each line should include:
 
-- tuotteen tai raaka-aineen nimi;
-- määrä tai pakkausmäärä yksikköineen;
-- aterian nimi vain, jos se ehkäisee sekaannusta;
-- joustava-valinta-merkintä silloin kun vaihtoehtoja on.
+- the product or ingredient name;
+- the quantity or package count with units;
+- the meal name only when it prevents confusion;
+- a flexible-choice note when alternatives are acceptable.
 
-Kirjaa oletukset, arvioidut määrät, budjettiarvio ja ratkaisemattomat kysymykset listan jälkeen. Erota välttämättömät ja valinnaiset tuotteet, jos budjetti on tiukka. Älä lisää kaupan tuotekoodeja tai tarkkoja merkkejä suunnitteluvaiheessa, ellei käyttäjä pyytänyt niitä.
+After the list, state assumptions, estimated quantities, budget estimate, and unresolved questions. If the budget is tight, separate essential and optional products. Do not add store product codes or exact brands during planning unless the user asks for them.
 
-Jos hinnat ovat tiedossa, erittele vähintään ostettavien pakkausten hinta-arvio ja summa. Näytä olennaisissa vertailuissa myös yksikköhinta sekä pakkaushinta ja -koko. Tee selväksi, että käytettyjen raaka-aineiden osuus ei ole sama kuin kassalla maksettava koko pakkausten summa. Kerro hintatiedon lähde, ajankohta, kauppa ja epävarmuudet. Älä esitä tarkkaa summaa, jos osa hinnoista puuttuu: näytä silloin osittainen summa tai vaihteluväli ja listaa puuttuvat hinnat.
+When prices are available, show at least the estimated total for the packages to buy. For relevant comparisons, include unit price, package price, and package size. Explain that the calculated value of ingredients used is not the same as the full package cost paid at checkout. State the price source, date, store, and uncertainty. Do not give a precise total when some prices are missing; show a partial total or range and list the missing prices.
 
-Esimerkki:
+Example:
 
 ```text
-Hedelmät ja vihannekset
-- Banaani, 6 kpl
-- Porkkana, noin 500 g
+Fruit and vegetables
+- Bananas, 6
+- Carrots, about 500 g
 
-Kuivat tuotteet
-- Kaurahiutaleet, 1 pakkaus
-- Kidneypavut, 2 tölkkiä
+Dry goods
+- Rolled oats, 1 package
+- Kidney beans, 2 cans
 
-Oletus: lista kattaa viisi arkiruokaa kahdelle.
-Joustava valinta: pakastepinaatti sopii tuoreen sijaan.
+Assumption: list covers five weekday meals for two people.
+Flexible choice: frozen spinach can replace fresh spinach.
 ```

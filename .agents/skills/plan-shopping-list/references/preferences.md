@@ -1,15 +1,15 @@
-# Mieltymykset ja rajoitteet
+# Preferences and constraints
 
-Käytä lyhyttä käyttäjäprofiilia vain, jos käyttäjä on kertonut tiedot tai pyytänyt niiden tallentamista. Älä päättele yksityisiä mieltymyksiä selaamisesta, aiemmista ostoksista tai yksittäisestä ostoslistasta. Pidä allergiat ja kiellot erillään mieltymyksistä. `allergies`, `never_buy` ja kielletyt ainesosat ovat aina ehdottomia poissulkuja.
+Use a short user profile only when the user has provided the information or asked to save it. Do not infer private preferences from browsing, past purchases, or a single shopping list. Keep allergies and prohibitions separate from preferences. `allergies`, `never_buy`, and prohibited ingredients are always hard exclusions.
 
-Ehdotus profiilin kentiksi:
+Suggested profile fields:
 
 ```yaml
 household_size: null
 planning_horizon_days: null
 budget_amount: null
 budget_currency: EUR
-budget_type: target # target tai hard_limit; kysy tarvittaessa
+budget_type: target # target or hard_limit; ask if needed
 price_estimate_store: null
 dietary_rules: []
 allergies: []
@@ -18,22 +18,22 @@ exact_products: []
 preferred_brands: []
 preferred_origin: []
 prefer_frozen: null
-convenience_level: null # basic, mixed tai ready-to-use
+convenience_level: null # basic, mixed, or ready-to-use
 pantry_items: []
 avoid_food_waste: true
 ```
 
-Tulkitse kentät näin:
+Interpret the fields as follows:
 
-- `allergies`, `never_buy`, kielletyt ainesosat ja nimenomaiset ruokavaliorajoitteet ovat ehdottomia poissulkuja. Niitä ei saa pisteyttää, lieventää eikä ohittaa hinnan, tarjouksen, saatavuuden, helppouden tai listapyynnön vuoksi.
-- Älä koskaan ehdota, valitse, lisää tai korvaa tuotteella, joka sisältää käyttäjän ilmoittaman allergeenin tai kielletyn ainesosan.
-- Jos tuotteen ainesosa-, allergeeni- tai ristikontaminaatiotieto puuttuu tai on epäselvä, jätä tuote pois ja kerro syy. Älä väitä tuotetta turvalliseksi äläkä pyydä käyttäjää hyväksymään riskialtista tuotetta.
-- Yksittäinen ostoslistapyyntö ei kumoa pysyvää allergiaa tai kieltoa. Jos listan rivi on ristiriidassa profiilin kanssa, ohita rivi ja kerro ristiriidasta.
-- `exact_products` tarkoittaa, että määritelty tuote tai merkki/muoto pitää säilyttää. Älä korvaa sitä hiljaisesti.
-- Merkki, kotimaisuus, pakaste/tuore ja helppous ovat mieltymyksiä, ellei käyttäjä sano esimerkiksi “vain”, “täytyy olla” tai vastaavaa. Kerro merkittävästä kompromissista väittämättä, että toive toteutui.
-- `budget_amount` on tavoite, ellei käyttäjä määritä sitä ehdottomaksi rajaksi (`budget_type: hard_limit`). Jos suunnitelma ei mahdu tavoitteeseen, kerro arvioitu erotus ja ehdota muutoksia. Kovan ylärajan kohdalla älä esitä sen ylittävää ostoslistaa budjettiin sopivana. Älä kuitenkaan riko hiljaisesti ruokavaliorajoitteita, tarkkoja tuotevaatimuksia tai muita ehdottomia ehtoja summan saavuttamiseksi.
-- `price_estimate_store` yksilöi kaupan tai myymälän, jos käyttäjä haluaa kauppakohtaisen arvion. Hinnat ja saatavuus voivat vaihdella kaupan, ajankohdan, jäsenhinnan ja tarjouksen mukaan; kerro aina käytetty lähde ja hintojen ajankohta, jos ne ovat saatavilla.
-- `prefer_frozen` ja `convenience_level` kuvaavat ostotapaa. Pakaste voi vähentää hävikkiä ja esivalmistelua; tuore voi sopia reseptiin paremmin. Valmiit tuotteet voivat maksaa enemmän, joten vertaa myös paketin kokonaishintaa.
-- `pantry_items` pitää päivittää käyttäjän kanssa. Älä käsittele vanhaa listaa ajantasaisena tarkistamatta.
+- `allergies`, `never_buy`, prohibited ingredients, and explicit dietary restrictions are hard exclusions. Never score, relax, or override them because of price, discounts, availability, convenience, or a shopping-list request.
+- Never suggest, select, add, or substitute a product that contains a user-reported allergen or prohibited ingredient.
+- If ingredient, allergen, or cross-contamination information is missing or unclear, exclude the product and explain why. Do not claim it is safe or ask the user to accept a risky product.
+- A one-time shopping request does not cancel a persistent allergy or prohibition. If a list item conflicts with the profile, skip it and report the conflict.
+- `exact_products` means the specified product, brand, or form must be preserved. Do not silently substitute it.
+- Brand, domestic origin, frozen/fresh, and convenience are preferences unless the user says "only", "must be", or similar. Report material trade-offs without claiming a preference was met when it was not.
+- `budget_amount` is a target unless the user defines it as a hard limit (`budget_type: hard_limit`). If the plan exceeds a target, state the estimated difference and offer changes. For a hard limit, do not present an over-budget list as fitting the budget. Never silently break dietary restrictions, exact product requirements, or other hard constraints to meet the amount.
+- `price_estimate_store` identifies the store or branch when the user wants a store-specific estimate. Prices and availability can vary by store, date, member pricing, and discounts; report the source and date when available.
+- `prefer_frozen` and `convenience_level` describe shopping preferences. Frozen food may reduce waste and prep; fresh food may suit a recipe better. Ready-to-use products may cost more, so compare the full package price too.
+- Confirm `pantry_items` with the user. Do not treat an old list as current without checking.
 
-Kysy profiilin muistamisesta, jos pysyvyydestä olisi olennaista hyötyä. Älä luo tai kirjoita profiilitiedostoa automaattisesti. Jos profiili on paikallisessa työtilassa, kunnioita sen rajausta äläkä kopioi henkilötietoja julkiseen repositorioon.
+Ask whether the user wants a profile saved if persistence would materially help. Do not create or write a profile file automatically. If a profile exists in the local workspace, respect its scope and do not copy personal information into a public repository.

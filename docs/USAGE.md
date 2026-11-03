@@ -1,68 +1,68 @@
-# Näin käytät taitoja
+# Using the skills
 
-## Asenna GitHub-reposta
+## Install from GitHub
 
-Kun repository on julkaistu GitHubiin, voit asentaa taidot tuettuun agenttiin Vercelin `skills`-CLI:llä:
+Once this repository is published on GitHub, install its skills into a supported agent with Vercel's `skills` CLI:
 
 ```sh
 npx skills add OWNER/REPO --agent claude-code
 ```
 
-Korvaa `OWNER/REPO` GitHubin käyttäjä- tai organisaationimellä ja repon nimellä. Komento tunnistaa repon skillit ja kysyy, mitkä niistä asennetaan. Vaihda `claude-code` käyttämäsi agentin tunnisteeseen. Asennuksen jälkeen kutsu taitoa alustan omalla tavalla.
+Replace `OWNER/REPO` with the GitHub user or organization and repository name. The command discovers the skills and asks which ones to install. Change `claude-code` to the identifier for your agent. Invoke the installed skill using your platform's method.
 
-## Analysoi olemassa oleva lista
+## Analyze an existing list
 
-Käynnistä `analyze-shopping-list` ja kerro, mitä haluat tietää. Taito ei oleta, että listaa pitäisi muuttaa tai arvioida yleisillä mittareilla.
+Start `analyze-shopping-list` and say what you want to learn. It does not assume the list needs to be changed or judged by generic criteria.
 
-Esimerkkejä:
+Examples:
 
-- "Ryhmittele tämä lista tuoteryhmiin. Älä arvioi sitä tai ehdota muutoksia."
-- "Vertaa näiden tuotteiden kilohintoja annettujen hintojen ja pakkauskokojen perusteella."
-- "Tarkastele listaa omien budjettirajojeni mukaan ja ehdota säästöjä, mutta älä muuta täsmätuotteita tai allergiarajoitteita."
+- "Group this list by product category. Do not judge it or suggest changes."
+- "Compare the unit prices of these products using the prices and package sizes provided."
+- "Review this list against my budget and brand preferences, and suggest savings without changing exact products or allergy restrictions."
 
-Jos näkökulma puuttuu, taito kysyy, mitä haluat selvittää, tai tarjoaa neutraaleja analyysivaihtoehtoja.
+If you do not specify a perspective, the skill asks what you want to find out or offers neutral analysis options.
 
-## 1. Suunnittele ja tarkista lista
+## 1. Plan and review a list
 
-Käynnistä `plan-shopping-list`-taito sillä tavalla, jonka oma tekoälytyökalusi tarjoaa. Kerro aikaväli, henkilömäärä, ateriat tai tavoitteet, budjetti (tavoite vai ehdoton yläraja), kotona jo olevat tuotteet, mieltymykset ja rajoitteet. Jos haluat kauppakohtaisen hinta-arvion, kerro myös kauppa tai myymälä.
+Start `plan-shopping-list` using the method provided by your AI tool. Tell it the time period, household size, meals or goals, budget (target or hard limit), items already at home, preferences, and constraints. If you want a store-specific price estimate, name the store or branch.
 
-Tarkista määrät, ehdotetut tuotteet, korvaukset ja budjetin oletukset ennen kuin siirrät listan kaupan palveluun.
+Review quantities, suggested products, substitutions, and budget assumptions before transferring the list to a store service.
 
-Budjettiarviossa erotetaan ostettavien pakkausten hinta siitä, paljonko pakkauksista käytetään aterioihin. Kun hintoja on, tarkista sekä pakkaushinta ja -koko että vastaavien tuotteiden yksikköhinnat. Puuttuvista hinnoista kerrotaan; niitä ei arvata.
+A budget estimate uses the prices of the packages you need to buy, not just the portion used in meals. When prices are available, compare package price and size as well as unit prices for comparable products. Missing prices are reported, not guessed.
 
-## 2. Täytä K‑Ruoka-lista
+## 2. Fill a K‑Ruoka list
 
-Käynnistä `fill-k-ruoka-list`-taito oman tekoälytyökalusi käyttöliittymässä. Anna tarkistettu lista, oikea jaettu K‑Ruoka-lista tai sen linkki, valittu kauppa jos tiedossa, sekä tuotemerkin, kotimaisuuden, tuoreuden/pakastuksen, valmiusasteen ja pakkauskoon prioriteetit. Kerro, saako tuotteita korvata. Taito ohittaa epäselvät tuotteet ja kertoo niistä lopuksi.
+Start `fill-k-ruoka-list` in your AI tool. Provide the reviewed list, the correct shared K‑Ruoka list or its link, the selected store if known, and your priorities for brands, domestic origin, fresh or frozen, preparation level, and package size. Say whether substitutions are allowed. The skill skips unclear products and reports them at the end.
 
-Esimerkki:
+Example:
 
-> Lisää alla oleva tarkistettu lista jaetulle K‑Ruoka-ostoslistalleni. Suosi K-Menua tai Pirkkaa ja kotimaista alkuperää, jos hintaero on enintään 20 %. Pakastekasvikset käyvät. Älä korvaa tarkasti nimettyjä tuotteita. Ohita epäselvät osumat ja kerro, mitä et voinut lisätä. Älä siirrä tuotteita ostoskoriin.
+> Add the reviewed list below to my shared K‑Ruoka shopping list. Prefer K-Menu or Pirkka and domestic origin if the price difference is no more than 20%. Frozen vegetables are fine. Do not replace products I named precisely. Skip unclear matches and tell me what you could not add. Do not move anything to the cart.
 
-Liitä tarkistettu lista pyynnön perään.
+Include the reviewed list after your request.
 
-## Selaimen käyttö ja vastuut
+## Browser access and responsibilities
 
-K‑Ruoka-listan täyttäminen edellyttää, että käyttäjän valitsemassa tekoälytyökalussa on selain- tai tietokoneohjaus käytössä. Käyttäjä kirjautuu omalla tilillään ja varmistaa, että jaettua listaa voi muokata. Jos jokin näistä ehdoista puuttuu, taito ei voi täyttää listaa.
+Filling a K‑Ruoka list requires browser or computer control in the AI tool you choose. You must sign in with your own account and confirm that you can edit the shared list. Without these conditions, the skill cannot fill the list.
 
-Taitojen sisältö ei anna selaimelle tai käyttäjätilille oikeuksia. Käyttäjä vastaa valitsemansa alustan työkaluista, asetuksista, tietosuojasta ja käyttöehdoista. Käyttäjän tulee tarkistaa valitut tuotteet ja varmistaa sivustolla, että muutokset näkyvät oikealla listalla.
+The skill instructions do not grant access to a browser or account. You are responsible for your chosen platform's tools, settings, privacy, and terms. Review product choices and confirm on the site that changes appear on the correct list.
 
-Tuotehaku voi käyttää eri kaupan valikoimaa kuin ostoslistan valittu kauppa. Tarkista listan nimi, kauppa, muokkausoikeus ja nykyiset tuotteet ennen muutoksia. Pysähdy, jos oikea lista tai muokkausoikeus ei ole selvä.
+Product search may show a different store's assortment from the one selected for the shopping list. Before making changes, check the list name, store, edit access, and current items. Stop if the correct list or edit access is unclear.
 
-## Muokkausten rajaus
+## Scope of changes
 
-Pyydettyyn ostoslistaan lisääminen on tämän taidon tehtävä. Ostoskoriin siirto, tilaus, maksu, toimituksen valinta ja listan jakamisasetusten muuttaminen ovat erillisiä toimia eivätkä kuulu tähän pyyntöön.
+This skill only adds products to the requested shopping list. Moving items to a cart, placing an order, paying, selecting delivery, and changing list-sharing settings are separate actions and are not included.
 
-## Loppuraportti
+## Final report
 
-Kerro lopuksi:
+At the end, report:
 
-- lisättyjen tuotteiden määrä ja nimet tai kategoriat;
-- ohitetut tuotteet ja syyt;
-- valittu kauppa ja tuotteet, joita ei ollut saatavilla;
-- sivuston ilmoittama summa, jos se on luotettava;
-- tallentuivatko lisäykset listalle;
-- ettei ostoskoria tai tilausta tehty.
+- the number and names or categories of products added;
+- skipped products and the reasons;
+- the selected store and unavailable products;
+- the amount shown by the site, if reliable;
+- whether the additions were saved to the list;
+- that no cart or order was created.
 
-## Henkilötiedot
+## Personal information
 
-Älä lisää käyttäjän jaetun ostoslistan linkkiä, tunnuksia, allergioita, mieltymyksiä tai ostoslistan sisältöä julkiseen repositoryyn. Pidä ne paikallisina.
+Do not add shared-list links, credentials, allergies, preferences, or shopping-list contents to a public repository. Keep them local.

@@ -1,33 +1,33 @@
-# Analyysiohjeita
+# Analysis guidelines
 
-## Käyttäjän näkökulma ensin
+## Start from the user's perspective
 
-Käyttäjä voi pyytää analyysiä omalla mittarillaan tai vain kuvailevaa yhteenvetoa. Esimerkkejä mahdollisista pyynnöistä:
+The user may request an analysis using their own metric or simply ask for a descriptive summary. Examples:
 
-- "Ryhmittele lista tuoteryhmiin ja laske rivien määrä."
-- "Vertaa näiden tuotteiden kilohintoja. Älä ehdota korvauksia."
-- "Kuinka suuri osuus tuotteista on pakasteita?"
-- "Tarkista, toistuuko samalla aterialla käytettäviä aineksia."
-- "Arvioi listaa näiden omien budjetti- ja merkkitoiveideni perusteella."
-- "Kuvaa lista neutraalisti ilman suosituksia."
+- "Group the list by product type and count the lines."
+- "Compare the unit prices of these products. Do not suggest substitutes."
+- "What share of the products are frozen?"
+- "Check whether ingredients are repeated across meals."
+- "Assess the list against my budget and brand preferences."
+- "Describe the list neutrally, without recommendations."
 
-Nämä ovat käyttäjän valitsemia esimerkkejä, eivät oletusarvoisia arviointikriteerejä.
+These examples are user-selected perspectives, not default evaluation criteria.
 
-## Tiedon luotettavuus
+## Information quality
 
-- Jos lista sisältää vain tuotenimet, älä päättele tarkkaa hintaa, alkuperää, pakkauskokoa, valmistusastetta tai ainesosia nimen perusteella.
-- Laske yksikköhinta vain, jos hinta ja vertailukelpoinen määrä ovat tiedossa. Näytä käytetty yksikkö ja huomioi, jos vertailu ei ole suora.
-- Erota pakkauksen hinta yksikköhinnasta. Suurempi pakkaus voi olla edullisempi yksikköhinnaltaan, mutta se ei automaattisesti vastaa käyttäjän käyttötarvetta.
-- Kerro, jos laskelma perustuu arvioon, vanhentuneeseen hintaan tai osittaiseen listaan.
-- Budjettia varten laske ostettavien pakkausten hinnat yhteen. Älä laske budjetiksi vain resepteihin käytettävän osan arvoa, jos käyttäjän täytyy ostaa koko pakkaus.
-- Ilmoita puuttuvat hinnat ja erottele täysi ostosumma osittaisesta summasta. Älä päättele, että lista mahtuu budjettiin, jos kaikkia tarvittavia hintoja tai pakkauskokoja ei ole.
-- Näytä yksikköhinnan lisäksi maksettava pakkaushinta ja pakkauskoko. Suuri pakkaus voi olla edullisempi kilohinnaltaan mutta maksaa tällä ostoskerralla enemmän; kuvaa ero päättämättä käyttäjän puolesta, kumpi mittari on tärkeämpi.
-- Jos hinta-arvio perustuu kaupan tietoihin, merkitse kauppa, tiedon ajankohta sekä näkyykö hinta jäsenhintana tai tarjouksena. Älä sekoita eri myymälöiden tai aikojen hintoja huomaamatta.
-- Älä yleistää yksittäisestä listasta käyttäjän taloudesta, terveydestä, arvoista tai tavoista.
+- If the list contains only product names, do not infer exact prices, origin, package sizes, preparation level, or ingredients from the names.
+- Calculate unit price only when the price and a comparable quantity are known. State the unit and note when the comparison is not direct.
+- Separate package price from unit price. A larger package may have a lower unit price, but it may not suit the user's needs.
+- Say when a calculation is based on an estimate, outdated price, or partial list.
+- For a budget, sum the prices of packages to buy. Do not treat only the recipe's used portion as the budget cost if the user must buy the whole package.
+- Report missing prices and distinguish a full shopping total from a partial total. Do not conclude that a list fits a budget if required prices or package sizes are missing.
+- Show package price and package size alongside unit price. A larger package can be cheaper per kilogram and still cost more on this shopping trip; describe the difference without deciding which measure matters more to the user.
+- If an estimate is based on store information, state the store, date, and whether the price is a member price or offer. Do not silently mix prices from different stores or dates.
+- Do not generalize from one list about the user's finances, health, values, or habits.
 
-## Ehdotukset ja ristiriidat
+## Recommendations and conflicts
 
-- Kun käyttäjä pyytää ehdotuksia, vertaa niitä hänen ilmoittamiinsa kriteereihin ja esitä olennaiset kompromissit.
-- Älä muuta omasta aloitteesta allergiaa, kieltoa tai täsmällistä tuotevaatimusta pehmeäksi toiveeksi.
-- Jos tiedossa oleva allergia tai kielto näyttää olevan ristiriidassa listan kanssa, kerro, mikä rivi ja rajoite ovat ristiriidassa. Älä väitä tuotetta turvalliseksi tai vaaralliseksi ilman luotettavaa tuotetietoa.
-- Jos tavoite jää epäselväksi ja vaihtoehtoiset tulkinnat johtaisivat eri suosituksiin, kysy käyttäjältä tai esitä tulkinnat rinnakkain.
+- When the user requests recommendations, compare them against the user's stated criteria and explain meaningful trade-offs.
+- Do not turn an allergy, prohibition, or exact product requirement into a soft preference on your own.
+- If a known allergy or prohibition appears to conflict with a list item, identify the item and restriction. Do not claim a product is safe or unsafe without reliable product information.
+- If the goal is unclear and different interpretations would lead to different recommendations, ask the user or present the interpretations side by side.
