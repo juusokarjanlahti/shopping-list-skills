@@ -129,6 +129,12 @@ Transferring a list requires browser or computer control in the AI tool you choo
 
 You choose and configure your AI platform. You are responsible for its settings, permissions, privacy, and terms of use. Skills provide instructions, not a guarantee that every platform will behave the same way.
 
+### Desktop and mobile
+
+- Planning and analysis need only a chat, so they work on any device where your AI tool can load skills.
+- Transferring a list needs a browser the AI can control, which usually runs on a computer, for example the built-in browser in the Claude desktop app. Some tools let you start or follow the task from your phone while the computer does the browsing. The computer must stay awake, online, and running that app.
+- K‑Ruoka shopping lists also appear in the K‑Ruoka mobile app, so you can use them in the store.
+
 ## 🧪 Testing
 
 `transfer-shopping-list` includes scenario tests in [`evals/`](.agents/skills/transfer-shopping-list/evals/). Each test describes a situation on a store website and checks the skill's response, so it runs without a store account or a real cart. With Claude Code, run them from the skill's directory:
